@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+        section{
+            min-height: 100vh;
+            background-image:linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)), url('https://cdn0.weddingwire.in/article/1510/original/1280/jpg/10151-indian-wedding-couple-images-photosynthesis-photography-services-best-indian-wedding-couple-images-revealed.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+        .containers{
+            width: 87%;
+            margin: auto;
+        }
+        nav{
+            height: 80px;
+        }
+        nav h1{
+            float: left;
+            line-height: 80px;
+            font-size: inline;
+            color: white;
+        }
+        nav ul{
+            float: right;
+            line-height: 80px;
+        }
+        nav ul li{
+            display: inline-block;
+            list-style: none;
+            padding: 0px 5px;
+        }
+        nav ul li a{
+            color: white;
+            text-decoration:none;
+            text-transform: uppercase;
+            border-radius: 5px;
+            padding: 7px 8px;
+        }
+        nav ul li a:hover{
+            background-color: green;
+            transition: 0.5s ease;
+        }
+        nav ul li .active{
+            background-color: green;
+        }
+        .article{
+            width: 50%;
+            text-align: center;
+            transform: translateY(25vh);
+        }
+        .article h1{
+            font-size: 36px;
+            color: white;
+            letter-spacing: 1.5px;
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+        .article p{
+            font-size: 18px;
+            line-height: 1.0;
+            margin-bottom: 50px;
+            color:rgb(92, 171, 78);
+            line-height: 40px;
+        }
+        .article .btn{
+            color: white;
+            padding: 12px 25px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            background-color: green;
+        }
+        .article .btn:hover{
+            background-color: #4399fa;
+            transition: 0.5s ease;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <section>
+        <div class="containers">
+            <nav>
+                <h1>MGPH</h1>
+                <ul>
+                    <li><a href="" class="active">Home</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Service</a></li>
+                    <li><a href="">Project</a></li>
+                    <li><a href="">Contacts</a></li>
+                </ul>
+            </nav>
+            <div class="article">
+                <h1> WE MAKE "CINE STORIES"</h1>
+                <p>Your wedding in India deserves an India wedding photographer who’s a perfect fit. Our list of best wedding photographers in India makes it easy to find the right match!
+                </p>
+                <a href="" class="btn">Download Now</a>
+
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>
