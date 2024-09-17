@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS property -->
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+       body{
+        font-family: Arial, Helvetica, sans-serif;
+       /* background-color: rgb(111, 153, 111); */
+       background-image: url('https://imgs.search.brave.com/LPvOpkejFS0a-cZli6KLcZATh272h6ptHCt0HR9jRxk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9ibGFuay1hbmNp/ZW50LXBhcGVyLXNj/cm9sbF8xMTA4NTMz/LTMzMTA2LmpwZz9z/aXplPTYyNiZleHQ9/anBn');
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-size: cover;
+        width: 100%;
+
+        
+        
+    
+    }
+    .main{
+        /* background-color: rgba(208, 139, 36, 0.547); */
+        padding: 80px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        width: 600px;
+    }
+    h1{
+        text-align: center;
+        margin-bottom: 20px;
+        color: black(69, 64, 64);
+    }
+    .input{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    input[type="text"]{
+        width: 80%;
+        padding: 10px;
+        border: 1px solid rgb(70, 58, 58);
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    button{
+        padding: 10px 15px;
+        background-color: rgb(20, 20, 87);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover{
+        background-color:rgb(5, 143, 46);
+
+    }
+    ul{
+        list-style: none;
+    }
+    ul li{
+        list-style: none;
+        font-size: 20px;
+        padding: 10px 8px 10px 8px;
+        user-select: none;
+        cursor: pointer;
+        position: relative;
+    }
+    ul li::before{
+        content: '';
+        position: absolute;
+        height: 30px;
+        width:30px;
+        border-radius: 50%;
+        background-image:url('https://th.bing.com/th/id/OIP.7IYqAFUo_hyCzxy6aTq04gHaHa?rs=1&pid=ImgDetMain');
+        background-size: cover;
+        background-position: center;
+        top: 8px;
+        left: -32px;
+
+    }
+    ul li.checked{
+        color: rgb(102, 102, 102);
+        text-decoration: line-through;
+    }
+    ul li.checked::before{
+        background-image: url('https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes-3/3/31-1024.png');
+    }
+    ul li span{
+        position: absolute;
+        right: 0;
+        top: 5px;
+        width: 40px;
+        height: 40px;
+        font-size: 22px;
+        color:#555;
+        line-height: 40px;
+        text-align: center;
+        border-radius: 50%;
+    }
+    ul li span:hover{
+        background-color: rgb(185, 242, 185);
+
+    }
+
+    
+
+        
+    </style>
+</head>
+<!-- HTML -->
+<body>
+    
+
+<div class="main">
+    <h1> TO DO LIST</h1>
+    <div class="input">
+        <input type="text"id="newtask"placeholder="Add a new task">
+        <button onclick="addTask()">Add task</button>
+    </div>
+                 <ul id="tasklist">
+                    <!-- <li class="checked">Task1</li>
+                    <li>Task2</li>
+                    <li>Task3</li> -->
+            
+                     </ul>
+                
+
+         </div>
+ </div>
+    <!-- javascript -->
+ <script>
+    const newtask=document.getElementById("newtask");
+    const tasklist=document.getElementById("tasklist");
+
+    function addTask(){
+        if(newtask.value===''){
+            alert("you must write something..");
+        }
+        else{
+            let li= document.createElement("li");
+            li.innerHTML=newtask.value;
+            tasklist.appendChild(li);
+            let span=document.createElement("span");
+            span.innerHTML="\u00d7";
+            li.appendChild(span);
+
+        }
+        newtask.value="";
+        saveData();
+
+    }
+    tasklist.addEventListener("click",function(e){
+        if(e.target.tagName=="LI"){
+            e.target.classList.toggle("checked");
+            saveData();
+        }
+        else if(e.target.tagName ==="SPAN"){
+            e.target.parentElement.remove();
+            saveData();
+        }
+
+    }, false);
+    function saveData(){
+        localStorage.setItem("data",tasklist.innerHTML);
+    }
+    function showTask(){
+        tasklist.innerHTML = localStorage.getItem("data");
+    }
+    showTask();
+
+ </script>
+</body>
+</html>
